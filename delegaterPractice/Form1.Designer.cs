@@ -28,15 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.listBoxProducts = new System.Windows.Forms.ListBox();
             this.btnSort1 = new System.Windows.Forms.Button();
             this.btnSort2 = new System.Windows.Forms.Button();
             this.btnSort3 = new System.Windows.Forms.Button();
             this.btnSortReset = new System.Windows.Forms.Button();
+            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // listBoxProducts
             // 
+            this.listBoxProducts.DataBindings.Add(new System.Windows.Forms.Binding("DisplayMember", this.productBindingSource, "Name", true));
             this.listBoxProducts.FormattingEnabled = true;
             this.listBoxProducts.ItemHeight = 18;
             this.listBoxProducts.Location = new System.Drawing.Point(13, 13);
@@ -52,6 +56,7 @@
             this.btnSort1.TabIndex = 1;
             this.btnSort1.Text = "정렬(함수이름)";
             this.btnSort1.UseVisualStyleBackColor = true;
+            this.btnSort1.Click += new System.EventHandler(this.btnSort1_Click);
             // 
             // btnSort2
             // 
@@ -61,6 +66,7 @@
             this.btnSort2.TabIndex = 2;
             this.btnSort2.Text = "정렬(익명 델리게이터)";
             this.btnSort2.UseVisualStyleBackColor = true;
+            this.btnSort2.Click += new System.EventHandler(this.btnSort2_Click);
             // 
             // btnSort3
             // 
@@ -70,6 +76,7 @@
             this.btnSort3.TabIndex = 3;
             this.btnSort3.Text = "정렬(람다)";
             this.btnSort3.UseVisualStyleBackColor = true;
+            this.btnSort3.Click += new System.EventHandler(this.btnSort3_Click);
             // 
             // btnSortReset
             // 
@@ -79,6 +86,11 @@
             this.btnSortReset.TabIndex = 4;
             this.btnSortReset.Text = "정렬 초기화";
             this.btnSortReset.UseVisualStyleBackColor = true;
+            this.btnSortReset.Click += new System.EventHandler(this.btnSortReset_Click);
+            // 
+            // productBindingSource
+            // 
+            this.productBindingSource.DataSource = typeof(delegaterPractice.Product);
             // 
             // Form1
             // 
@@ -93,6 +105,7 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -104,6 +117,7 @@
         private System.Windows.Forms.Button btnSort2;
         private System.Windows.Forms.Button btnSort3;
         private System.Windows.Forms.Button btnSortReset;
+        private System.Windows.Forms.BindingSource productBindingSource;
     }
 }
 
